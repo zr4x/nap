@@ -1,5 +1,6 @@
 from selenium.webdriver.common.action_chains import *
 
+
 class IssueHeleper:
     def __init__(self, app):
         self.app = app
@@ -24,9 +25,10 @@ class IssueHeleper:
             wd.find_element_by_name(field_name).click()
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(text)
+
 # РЕАЛИЗОВАЛ КЛИК МЫШКОЙ ПО ЭЛЕМЕНТУ
     def sorry(self):
         wd = self.app.wd
-        menu = wd.find_element_by_xpath("html/body/div[3]/table/tbody/tr[2]/td[3]")
+        menu = wd.find_element_by_xpath("html/body/div[3]/table/tbody/tr[2]/td[5]")
         hidden_subtend = wd.find_element_by_xpath("html/body/div[3]/table/tbody/tr[2]/td[9]/a")
         ActionChains(wd).move_to_element(menu).click(hidden_subtend).perform()

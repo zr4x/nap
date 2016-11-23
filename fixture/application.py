@@ -1,17 +1,19 @@
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium import webdriver
 from fixture.session import SessionHelper
 from fixture.issue import IssueHeleper
 
 
 class Application:
-    def __init__(self):
-        self.wd = WebDriver()
+    def __init__(self, url):
+        self.wd = webdriver.Chrome()
         self.session = SessionHelper(self)
         self.issue = IssueHeleper(self)
+        self.url = url
 
     def open_home_page(self):
         wd = self.wd
-        wd.get("http://demopanel.napoleonit.ru/")
+        wd.get(self.url)
+        wd.implicitly_wait(10)
 
     def is_valid(self):
         try:
